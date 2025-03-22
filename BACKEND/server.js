@@ -25,7 +25,8 @@ app.post('/save-score', (req, res) => {
     const { username, score, game } = req.body;
     const newScore = new Score({ username, score, game });
     newScore.save()
-        .then(() => res.status(200).send('Score saved successfully!'))
+        .then(() => res.status(200).json({ message: "Score saved successfully!" });
+
         .catch(err => res.status(500).send('Error saving score: ' + err));
 });
 
